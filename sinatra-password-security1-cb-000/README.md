@@ -4,7 +4,6 @@
 
 In this lesson, we'll cover bcryp, a gem that works to encrypt passwords. 
 
-
 ## Objectives
 
 1. Explain how bcrypt manipulates and stores passwords
