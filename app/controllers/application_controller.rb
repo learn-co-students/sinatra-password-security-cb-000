@@ -12,21 +12,42 @@ class ApplicationController < Sinatra::Base
 		erb :index
 	end
 
+  # render signup page
 	get "/signup" do
 		erb :signup
 	end
 
+  # process user signup
 	post "/signup" do
-		#your code here!
+		# create a new user instance
+    user = User.new(username: params[:username], password: params[:password])
+
+    # if the user can be saved, redirect them to /login
+    if user.save
+      redirect :'/login'
+    else
+      redirect :'/failure'
+    end
 	end
 
-
+  # render the login page
 	get "/login" do
 		erb :login
 	end
 
+  # process user login
 	post "/login" do
-		#your code here!
+		# check if the user is valid
+    user = User.find_by(username: params[:username])
+
+    # if they're vaild and authenticated, log them in
+    if user && user.authenticate(params[:password])
+      session[:user_id] = user.id
+      redirect :'/success'
+    else
+      redirect :'/failure'
+    end
+
 	end
 
 	get "/success" do
