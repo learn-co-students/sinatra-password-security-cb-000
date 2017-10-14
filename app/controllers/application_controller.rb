@@ -18,6 +18,14 @@ class ApplicationController < Sinatra::Base
 
 	post "/signup" do
 		#your code here!
+		user = User.new(:username => params[:username], :password => params[:password])
+
+		#We won't be able to save the user to the database if the user has not filled out the password field.
+		if user.save
+        redirect "/login"
+    else
+        redirect "/failure"
+    end
 	end
 
 
@@ -27,6 +35,13 @@ class ApplicationController < Sinatra::Base
 
 	post "/login" do
 		#your code here!
+		user = User.find_by(:username => params[:username])
+    if user && user.authenticate(params[:password])
+			session[:user_id] = user.id
+      redirect "/success"
+    else
+        redirect "/failure"
+    end
 	end
 
 	get "/success" do
