@@ -5,7 +5,7 @@ gem "sinatra"
 gem "activerecord"
 gem "sinatra-activerecord"
 gem "rake"
-gem "bcrypt"
+gem "bcrypt" # keeps password secure
 gem "rspec"
 gem "require_all"
 gem "capybara"
@@ -16,4 +16,3 @@ gem 'shotgun'
 group :development do
   gem "tux"
 end
-
