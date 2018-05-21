@@ -2,7 +2,9 @@
 source "https://rubygems.org"
 
 gem "sinatra"
-gem "activerecord"
+# fix problem with undefined method 'needs_migration'
+#gem "activerecord"
+gem 'activerecord', '~> 5.1', '>= 5.1.5'
 gem "sinatra-activerecord"
 gem "rake"
 gem "bcrypt"
@@ -16,4 +18,3 @@ gem 'shotgun'
 group :development do
   gem "tux"
 end
-
