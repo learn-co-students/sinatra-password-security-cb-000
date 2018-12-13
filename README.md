@@ -61,6 +61,7 @@ we'll use `def up` and `def down` methods for this lab, but note that you will
 often see `def change` now when generating migrations. Let's edit that file so
 that it actually creates a `users` table. We'll have two columns: one for
 `username` and one for `password_digest`.
+um
 
 ```ruby
 class CreateUsers < ActiveRecord::Migration[5.1]
