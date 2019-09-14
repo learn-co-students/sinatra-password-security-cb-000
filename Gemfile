@@ -12,8 +12,8 @@ gem "capybara"
 gem "pry"
 gem "sqlite3"
 gem 'shotgun'
+gem 'rb-readline'
 
 group :development do
   gem "tux"
 end
-
